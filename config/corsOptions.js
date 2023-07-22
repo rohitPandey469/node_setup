@@ -8,6 +8,7 @@ const corsOptions = {
       callback(new Error("Not allowed by CORS"));
     }
   },
+  // origin:'https://react-auth-signup-login.netlify.app',
   credentials: true,
   optionsSuccessStatus: 200,
 };

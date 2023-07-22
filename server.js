@@ -13,6 +13,8 @@ const credentials = require("./middleware/credentials");
 const { default: mongoose } = require("mongoose");
 const PORT = process.env.PORT || 3500;
 
+
+console.log(process.env.NODE_ENV)
 // connected to mongoDB
 dbConn();
 
@@ -68,5 +70,5 @@ app.use(errorHandler);
 
 mongoose.connection.once("open", () => {
   console.log("Connected to mongoDB");
-  app.listen(PORT, () => console.log(`Server running on port ${3500}`));
+  app.listen(PORT, () => console.log(`Server running on port ${process.env.PORT}`));
 });

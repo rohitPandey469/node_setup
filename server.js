@@ -11,10 +11,9 @@ const verifyJWT = require("./middleware/verifyJWT");
 const cookieParser = require("cookie-parser");
 const credentials = require("./middleware/credentials");
 const { default: mongoose } = require("mongoose");
-const PORT = process.env.PORT || 3500;
+const PORT = process.env.PORT || 5000;
 
-
-console.log(process.env.NODE_ENV)
+console.log(process.env.NODE_ENV);
 // connected to mongoDB
 dbConn();
 
@@ -50,6 +49,7 @@ app.use("/logout", require("./routes/logout"));
 app.use(verifyJWT);
 app.use("/employees", require("./routes/api/employees"));
 app.use("/users", require("./routes/api/users"));
+app.use("/api/dialogflow", require("./routes/dialogflow"));
 
 app.get("^/$|/index(.html)?", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "index.html"));
@@ -70,5 +70,7 @@ app.use(errorHandler);
 
 mongoose.connection.once("open", () => {
   console.log("Connected to mongoDB");
-  app.listen(PORT, () => console.log(`Server running on port ${process.env.PORT}`));
+  app.listen(PORT, () =>
+    console.log(`Server running on port ${PORT}`)
+  );
 });

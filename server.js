@@ -45,11 +45,11 @@ app.use("/register", require("./routes/register"));
 app.use("/auth", require("./routes/auth"));
 app.use("/refresh", require("./routes/refresh")); //new access token
 app.use("/logout", require("./routes/logout"));
+app.use("/api/dialogflow", require("./routes/dialogflow"));
 
 app.use(verifyJWT);
 app.use("/employees", require("./routes/api/employees"));
 app.use("/users", require("./routes/api/users"));
-app.use("/api/dialogflow", require("./routes/dialogflow"));
 
 app.get("^/$|/index(.html)?", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "index.html"));

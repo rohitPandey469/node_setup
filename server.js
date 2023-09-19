@@ -18,7 +18,7 @@ console.log(process.env.NODE_ENV);
 dbConn();
 
 // custom middleware logger
-app.use(logger);
+// app.use(logger);
 
 // Handle options credentials check - before CORS!
 // and fetch cookies credentials requirement
